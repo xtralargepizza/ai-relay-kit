@@ -1,0 +1,4 @@
+interface:
+  display_name: "Relay"
+  short_description: "Astra direction, Sol execution and review"
+  default_prompt: "Use $relay for this task: brief Astra direction, Sol execution and milestone review, and minimal Astra involvement."
