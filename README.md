@@ -8,21 +8,21 @@ Three things from the main PC, packaged so another Windows PC can have them with
 
 ## Install on another PC
 
-Sign in to GitHub once (`gh auth login`), then run this in PowerShell:
+Paste this into PowerShell. No sign-in, git or GitHub tools needed:
 
 ```powershell
-gh repo clone xtralargepizza/ai-relay-kit "$env:USERPROFILE\ai-relay-kit"; powershell -ExecutionPolicy Bypass -File "$env:USERPROFILE\ai-relay-kit\install.ps1"
+irm https://raw.githubusercontent.com/xtralargepizza/ai-relay-kit/main/get.ps1 | iex
 ```
 
-To update later:
-
-```powershell
-git -C "$env:USERPROFILE\ai-relay-kit" pull; powershell -ExecutionPolicy Bypass -File "$env:USERPROFILE\ai-relay-kit\install.ps1"
-```
+It downloads the kit to `%USERPROFILE%\ai-relay-kit` and runs `install.ps1`. Run the same command again to update.
 
 Restart Claude Code and Codex afterwards. Anything the installer replaces is moved to `%USERPROFILE%\.relay-kit-backups\<timestamp>` first.
 
-Install only part of it with `-NoClaude`, `-NoCodexRelay`, `-NoCodexFix` or `-NoShortcuts`.
+Install only part of it with `-NoClaude`, `-NoCodexRelay`, `-NoCodexFix` or `-NoShortcuts`, for example:
+
+```powershell
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/xtralargepizza/ai-relay-kit/main/get.ps1))) -NoCodexFix
+```
 
 ## What lands where
 
